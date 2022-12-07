@@ -1,0 +1,37 @@
+{
+  "name": "vite-plugin-vue-mixins",
+  "version": "1.0.0",
+  "description": "inject mixins to vue2 sfc file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cczw2010/vite-plugin-vue-mixins.git"
+  },
+  "keywords": [
+    "vite",
+    "vue",
+    "vue2",
+    "mixins"
+  ],
+  "files": [
+    "index,js"
+  ],
+  "author": "awen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cczw2010/vite-plugin-vue-mixins/issues"
+  },
+  "homepage": "https://github.com/cczw2010/vite-plugin-vue-mixins#readme",
+  "dependencies": {
+    "acorn": "^8.8.1",
+    "estree-walker": "^3.0.1",
+    "magic-string": "^0.27.0",
+    "minimatch": "^5.1.1",
+    "vite": "^3.2.5",
+    "vue": "2.7"
+  }
+}
