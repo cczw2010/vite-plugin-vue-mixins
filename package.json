@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-vue-mixins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "inject mixins to vue2 sfc file",
   "main": "index.js",
   "scripts": {

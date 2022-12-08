@@ -17,11 +17,14 @@ import {walk} from "estree-walker"
  * @returns 
  */
 export default function (options) {
-  const transformer = new Transformer(options)
+  let transformer 
   return {
     name: 'vite-plugin-vue-mixins',
     enforce: 'pre',
     // apply: 'build', // 或 'serve'
+    configResolved(resolvedConfig) {
+      transformer = new Transformer(options,resolvedConfig.root)
+    },
     transform(source,id){
       const result = transformer.transform(id,source)
       return result||source
@@ -35,12 +38,13 @@ export default function (options) {
  * @class Transformer
  */
 class Transformer{
-  constructor(options){
+  constructor(options,root){
+    root = root||process.cwd()
     options = options||[]
     this.options = options.map(option=>{
-      option.include = option.include && normalizePath(resolve(option.include))
-      option.exclude = option.exclude && normalizePath(resolve(option.exclude))
-      option.mixins = option.mixins && option.mixins.map(mixin=>normalizePath(resolve(mixin)))
+      option.include = option.include && normalizePath(resolve(root,option.include))
+      option.exclude = option.exclude && normalizePath(resolve(root,option.exclude))
+      option.mixins = option.mixins && option.mixins.map(mixin=>normalizePath(resolve(root,mixin)))
       return option
     })
   }
